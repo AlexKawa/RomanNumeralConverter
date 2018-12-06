@@ -1,3 +1,6 @@
+/*
+ * Convert integer parameter to a roman numeral
+ */
 function convertIntToRoman(intToBeConverted) {
   const romanNumDict = {
     M: 1000,
@@ -18,9 +21,12 @@ function convertIntToRoman(intToBeConverted) {
   let intForCalc = intToBeConverted
   let result = ""
 
+  // Loop through int and dictionary
   while (intForCalc != 0) {
     for (var numeral in romanNumDict) {
+      // Find the first/greatest positive divisor
       if ((intForCalc / romanNumDict[numeral]) >= 1) {
+        // Add roman numeral to result and substract value from rest of int
         result += numeral
         intForCalc -= romanNumDict[numeral]
         break
